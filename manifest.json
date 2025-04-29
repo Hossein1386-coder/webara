@@ -1,19 +1,21 @@
 {
-    "name": "وب آرا - ثبت سفارش",
+    "name": "وب آرا - اپلیکیشن موبایل",
     "short_name": "وب آرا",
     "description": "سامانه ثبت سفارش طراحی سایت وب آرا",
-    "start_url": "/pwa.html",
+    "start_url": "./pwa-index.html",
+    "scope": "./",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#ffffff",
+    "orientation": "portrait",
     "icons": [
         {
-            "src": "images/icon-192x192.png",
+            "src": "./images/icon-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "images/icon-512x512.png",
+            "src": "./images/icon-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
