@@ -2,7 +2,7 @@
     "name": "وب آرا - اپلیکیشن موبایل",
     "short_name": "وب آرا",
     "description": "سامانه ثبت سفارش طراحی سایت وب آرا",
-    "start_url": "./pwa-index.html",
+    "start_url": "./pwa.html",
     "scope": "./",
     "display": "standalone",
     "background_color": "#ffffff",
