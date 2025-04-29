@@ -1,11 +1,11 @@
 const CACHE_NAME = 'webara-cache-v1';
 const urlsToCache = [
-    '/webara/',
-    '/webara/index.html',
-    '/webara/css/style.css',
-    '/webara/js/main.js',
-    '/webara/images/icon-192x192.png',
-    '/webara/images/icon-512x512.png'
+    '.',
+    'index.html',
+    'css/style.css',
+    'js/main.js',
+    'images/icon-192x192.png',
+    'images/icon-512x512.png'
 ];
 
 self.addEventListener('install', event => {
