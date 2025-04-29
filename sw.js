@@ -2,6 +2,7 @@ const CACHE_NAME = 'webara-cache-v1';
 const urlsToCache = [
     '.',
     'index.html',
+    'pwa.html',
     'css/style.css',
     'js/main.js',
     'images/icon-192x192.png',

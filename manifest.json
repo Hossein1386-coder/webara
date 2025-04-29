@@ -2,7 +2,7 @@
     "name": "وب آرا",
     "short_name": "وب آرا",
     "description": "طراحی و توسعه وب‌سایت و اپلیکیشن",
-    "start_url": ".",
+    "start_url": "pwa.html",
     "scope": ".",
     "display": "standalone",
     "background_color": "#ffffff",
