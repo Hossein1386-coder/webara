@@ -121,4 +121,202 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
-}); 
+});
+
+// گالری تصاویر
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.querySelector('.lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const lightboxClose = document.querySelector('.lightbox-close');
+    const lightboxPrev = document.querySelector('.lightbox-prev');
+    const lightboxNext = document.querySelector('.lightbox-next');
+    let currentImageIndex = 0;
+    const images = Array.from(document.querySelectorAll('.gallery-item img'));
+
+    // فیلتر تصاویر
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const filter = button.getAttribute('data-filter');
+            
+            // آپدیت کلاس active
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // فیلتر تصاویر
+            galleryItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+
+    // لایت باکس
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            currentImageIndex = index;
+            lightboxImg.src = images[index].src;
+            lightbox.style.display = 'block';
+        });
+    });
+
+    // بستن لایت باکس
+    lightboxClose.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            lightbox.style.display = 'none';
+        }
+    });
+
+    // ناوبری لایت باکس
+    lightboxPrev.addEventListener('click', () => {
+        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        lightboxImg.src = images[currentImageIndex].src;
+    });
+
+    lightboxNext.addEventListener('click', () => {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        lightboxImg.src = images[currentImageIndex].src;
+    });
+
+    // کلیدهای کیبورد
+    document.addEventListener('keydown', (e) => {
+        if (lightbox.style.display === 'block') {
+            if (e.key === 'Escape') {
+                lightbox.style.display = 'none';
+            } else if (e.key === 'ArrowLeft') {
+                lightboxPrev.click();
+            } else if (e.key === 'ArrowRight') {
+                lightboxNext.click();
+            }
+        }
+    });
+});
+
+// گالری کارتی
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.gallery-slide');
+    const dots = document.querySelectorAll('.gallery-dot');
+    const prevBtn = document.querySelector('.gallery-prev');
+    const nextBtn = document.querySelector('.gallery-next');
+    let currentSlide = 0;
+    let slideInterval;
+
+    // نمایش اسلاید
+    function showSlide(n) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        currentSlide = (n + slides.length) % slides.length;
+        slides[currentSlide].classList.add('active');
+        dots[currentSlide].classList.add('active');
+    }
+
+    // اسلاید بعدی
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    // اسلاید قبلی
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    // شروع اسلاید خودکار
+    function startSlideShow() {
+        slideInterval = setInterval(nextSlide, 5000);
+    }
+
+    // توقف اسلاید خودکار
+    function stopSlideShow() {
+        clearInterval(slideInterval);
+    }
+
+    // رویدادهای دکمه‌ها
+    nextBtn.addEventListener('click', () => {
+        stopSlideShow();
+        nextSlide();
+        startSlideShow();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        stopSlideShow();
+        prevSlide();
+        startSlideShow();
+    });
+
+    // رویدادهای دات‌ها
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            stopSlideShow();
+            showSlide(index);
+            startSlideShow();
+        });
+    });
+
+    // شروع اسلاید خودکار
+    startSlideShow();
+
+    // توقف اسلاید خودکار هنگام هاور روی گالری
+    const gallery = document.querySelector('.gallery-slider');
+    gallery.addEventListener('mouseenter', stopSlideShow);
+    gallery.addEventListener('mouseleave', startSlideShow);
+});
+
+// ثبت Service Worker
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('ServiceWorker registration successful');
+            })
+            .catch(err => {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+    });
+}
+
+// نمایش نصب PWA برای کاربران iOS
+let deferredPrompt;
+const installButton = document.createElement('button');
+installButton.className = 'btn btn-primary position-fixed bottom-0 end-0 m-3';
+installButton.innerHTML = '<i class="fas fa-plus"></i> نصب اپلیکیشن';
+installButton.style.display = 'none';
+
+document.body.appendChild(installButton);
+
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installButton.style.display = 'block';
+});
+
+installButton.addEventListener('click', async () => {
+    if (deferredPrompt) {
+        deferredPrompt.prompt();
+        const { outcome } = await deferredPrompt.userChoice;
+        if (outcome === 'accepted') {
+            installButton.style.display = 'none';
+        }
+        deferredPrompt = null;
+    }
+});
+
+// تشخیص دستگاه iOS
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+if (isIOS) {
+    const iosInstallBanner = document.createElement('div');
+    iosInstallBanner.className = 'alert alert-info position-fixed bottom-0 start-0 end-0 m-0 text-center';
+    iosInstallBanner.innerHTML = `
+        برای نصب اپلیکیشن، روی دکمه Share کلیک کنید و سپس "Add to Home Screen" را انتخاب کنید
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    `;
+    document.body.appendChild(iosInstallBanner);
+} 

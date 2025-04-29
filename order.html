@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سفارش سایت | وب آرا</title>
+    <!-- Bootstrap RTL CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Vazirmatn Font -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!-- Header -->
+    <header class="fixed-top bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">وب آرا</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">خانه</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#about">درباره من</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#skills">مهارت‌ها</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">تماس</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Order Form Section -->
+    <section class="order-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="order-form-card">
+                        <h2 class="text-center mb-4 gradient-text">سفارش طراحی سایت</h2>
+                        
+                        <form id="orderForm" class="needs-validation" novalidate>
+                            <!-- اطلاعات شخصی -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">اطلاعات شخصی</h4>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="name" class="form-label">نام و نام خانوادگی</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                        <div class="invalid-feedback">لطفا نام خود را وارد کنید</div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="phone" class="form-label">شماره تماس</label>
+                                        <input type="tel" class="form-control" id="phone" required>
+                                        <div class="invalid-feedback">لطفا شماره تماس خود را وارد کنید</div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">ایمیل</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                    <div class="invalid-feedback">لطفا ایمیل معتبر وارد کنید</div>
+                                </div>
+                            </div>
+
+                            <!-- نوع سایت -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">نوع سایت</h4>
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="siteType" id="personal" value="personal" required>
+                                            <label class="form-check-label" for="personal">
+                                                سایت شخصی
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="siteType" id="shop" value="shop">
+                                            <label class="form-check-label" for="shop">
+                                                فروشگاه اینترنتی
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="siteType" id="company" value="company">
+                                            <label class="form-check-label" for="company">
+                                                سایت شرکتی
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ویژگی‌های مورد نیاز -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">ویژگی‌های مورد نیاز</h4>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="responsive" value="responsive">
+                                            <label class="form-check-label" for="responsive">
+                                                ریسپانسیو
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="seo" value="seo">
+                                            <label class="form-check-label" for="seo">
+                                                بهینه‌سازی SEO
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="contactForm" value="contactForm">
+                                            <label class="form-check-label" for="contactForm">
+                                                فرم تماس
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="gallery" value="gallery">
+                                            <label class="form-check-label" for="gallery">
+                                                گالری تصاویر
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- توضیحات -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">توضیحات</h4>
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">توضیحات و نیازمندی‌های خاص</label>
+                                    <textarea class="form-control" id="description" rows="4"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- ددلاین و بودجه -->
+                            <div class="mb-4">
+                                <h4 class="mb-3">زمان و بودجه</h4>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="deadline" class="form-label">مهلت تحویل (روز)</label>
+                                        <input type="number" class="form-control" id="deadline" min="1">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="budget" class="form-label">بودجه (تومان)</label>
+                                        <input type="number" class="form-control" id="budget" min="0">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- دکمه ارسال -->
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary btn-lg">ارسال درخواست</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>دسترسی سریع</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html#home">خانه</a></li>
+                        <li><a href="index.html#about">درباره من</a></li>
+                        <li><a href="index.html#portfolio">پروژه‌ها</a></li>
+                        <li><a href="index.html#skills">مهارت‌ها</a></li>
+                        <li><a href="index.html#services">خدمات</a></li>
+                        <li><a href="contact.html">تماس</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>اطلاعات تماس</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt"></i> یزد، ایران</li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:09214423079">09214423079</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:hosseinmirzahasani3@gmail.com">hosseinmirzahasani3@gmail.com</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>شبکه‌های اجتماعی</h5>
+                    <div class="social-links">
+                        <a href="https://wa.me/989214423079" target="_blank" class="whatsapp-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://t.me/09214423079" target="_blank" class="telegram-link">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="sms:09214423079" class="sms-link">
+                            <i class="fas fa-comment"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>&copy; 2025 Hossein-coding</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/order.js"></script>
+</body>
+</html> 

@@ -1,3 +1,162 @@
+/* استایل‌های پایه */
+:root {
+    --primary-color: #0d6efd;
+    --primary-hover: #0a58ca;
+    --text-dark: #2c3e50;
+    --text-light: #495057;
+    --text-gray: #6c757d;
+    --bg-light: #f8f9fa;
+    --border-color: #dee2e6;
+}
+
+/* استایل‌های مشترک */
+.card-base {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.text-base {
+    font-family: 'Vazirmatn', sans-serif;
+    line-height: 1.6;
+}
+
+.btn-base {
+    font-family: 'Vazirmatn', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* استایل‌های بخش خدمات */
+.service-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-card h3 {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.service-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(45deg, var(--primary-color), var(--primary-hover));
+}
+
+.service-card p {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.service-features li {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 0.8rem;
+    padding-right: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.service-features li::before {
+    content: '✓';
+    position: absolute;
+    right: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.service-card .btn-primary {
+    font-family: 'Vazirmatn', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.service-card .btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/* استایل‌های ریسپانسیو */
+@media (max-width: 768px) {
+    .service-card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .service-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .service-card p {
+        font-size: 1rem;
+    }
+    
+    .service-features li {
+        font-size: 0.9rem;
+    }
+    
+    .service-card .btn-primary {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+/* بهینه‌سازی انیمیشن‌ها */
+@media (prefers-reduced-motion: reduce) {
+    .service-card,
+    .service-card .btn-primary {
+        transition: none;
+    }
+}
+
+/* پشتیبانی از مرورگرهای قدیمی */
+@supports not (backdrop-filter: blur(10px)) {
+    .service-card {
+        background: rgba(255, 255, 255, 0.95);
+    }
+}
+
 /* General Styles */
 body {
     font-family: 'Vazirmatn', sans-serif;
@@ -912,74 +1071,128 @@ h2 {
     font-weight: 500;
 }
 
-/* Services Section Styles */
+/* استایل‌های جدید برای بخش خدمات */
 .service-card {
-    background: #ffffff;
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
     height: 100%;
-    display: flex;
-    flex-direction: column;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: 0.6s;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.service-card:hover::before {
+    transform: translateX(100%);
 }
 
 .service-icon {
-    width: 70px;
-    height: 70px;
-    background: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    transition: all 0.5s ease;
 }
 
-.service-icon i {
-    font-size: 1.8rem;
-    color: #0d6efd;
+.service-card:hover .service-icon {
+    transform: scale(1.2) rotate(10deg);
 }
 
 .service-card h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
     color: #2c3e50;
-    font-size: 1.5rem;
     margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.service-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(45deg, #0d6efd, #0a58ca);
 }
 
 .service-card p {
-    color: #6c757d;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #495057;
     margin-bottom: 1.5rem;
 }
 
 .service-features {
     list-style: none;
     padding: 0;
-    margin-bottom: 1.5rem;
+    margin: 0 0 1.5rem 0;
 }
 
 .service-features li {
-    color: #6c757d;
-    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    color: #495057;
+    margin-bottom: 0.8rem;
     padding-right: 1.5rem;
     position: relative;
 }
 
-.service-features li:before {
+.service-features li::before {
     content: '✓';
-    color: #0d6efd;
     position: absolute;
     right: 0;
+    color: #0d6efd;
+    font-weight: bold;
 }
 
-.service-card .btn {
-    margin-top: auto;
-    width: 100%;
+.service-card .btn-primary {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 0.75rem 1.5rem;
+}
+
+/* استایل‌های ریسپانسیو برای متن‌های خدمات */
+@media (max-width: 768px) {
+    .service-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .service-card p {
+        font-size: 1rem;
+    }
+    
+    .service-features li {
+        font-size: 0.9rem;
+    }
+    
+    .service-card .btn-primary {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
 }
 
 /* Service Page Styles */
@@ -1378,4 +1591,1168 @@ h2 {
     margin-bottom: 15px;
     color: #333;
     border: 2px dashed #dee2e6;
+}
+
+/* Loader Styles */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    flex-direction: column;
+}
+
+.loader {
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+
+.loader:before,
+.loader:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    border-top-color: #3498db;
+    animation: spin 1s linear infinite;
+}
+
+.loader:after {
+    border: 4px solid transparent;
+    border-top-color: #e74c3c;
+    animation: spin 1.5s linear infinite;
+}
+
+.loader-text {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #3498db;
+    font-family: Vazirmatn, sans-serif;
+}
+
+/* Tilt Cards */
+.tilt-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 20px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.tilt-card:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+}
+
+/* Parallax Effect */
+.parallax-section {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 400px;
+    position: relative;
+}
+
+/* Neomorphic Buttons */
+.btn-neo {
+    background: #ffffff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #d9d9d9, -5px -5px 10px #ffffff;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
+}
+
+.btn-neo:hover {
+    box-shadow: inset 5px 5px 10px #d9d9d9, inset -5px -5px 10px #ffffff;
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Floating Elements */
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Glowing Effect */
+.glow {
+    position: relative;
+}
+
+.glow::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background-size: 400%;
+    border-radius: inherit;
+    z-index: -1;
+    filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.glow:hover::before {
+    opacity: 1;
+    animation: glowing 20s linear infinite;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/* 3D Card Effect */
+.card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.card-3d:hover {
+    transform: rotateY(180deg);
+}
+
+.card-3d-front,
+.card-3d-back {
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.card-3d-back {
+    transform: rotateY(180deg);
+}
+
+/* Particle Background */
+.particle-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Hover Zoom Effect */
+.hover-zoom {
+    transition: transform 0.3s ease;
+}
+
+.hover-zoom:hover {
+    transform: scale(1.1);
+}
+
+/* Shine Effect */
+.shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+
+/* Neon Text */
+.neon-text {
+    color: #fff;
+    text-shadow: 0 0 5px #fff,
+                 0 0 10px #fff,
+                 0 0 20px #fff,
+                 0 0 40px #0ff,
+                 0 0 80px #0ff,
+                 0 0 90px #0ff,
+                 0 0 100px #0ff,
+                 0 0 150px #0ff;
+    animation: neon 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon {
+    from {
+        text-shadow: 0 0 10px #fff,
+                     0 0 20px #fff,
+                     0 0 30px #fff,
+                     0 0 40px #0ff,
+                     0 0 70px #0ff,
+                     0 0 80px #0ff,
+                     0 0 100px #0ff,
+                     0 0 150px #0ff;
+    }
+    to {
+        text-shadow: 0 0 5px #fff,
+                     0 0 10px #fff,
+                     0 0 15px #fff,
+                     0 0 20px #0ff,
+                     0 0 35px #0ff,
+                     0 0 40px #0ff,
+                     0 0 50px #0ff,
+                     0 0 75px #0ff;
+    }
+}
+
+/* Glass Morphism */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+/* Gradient Border */
+.gradient-border {
+    position: relative;
+    border-radius: 10px;
+}
+
+.gradient-border::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background-size: 400%;
+    border-radius: inherit;
+    z-index: -1;
+    animation: gradient-border 20s linear infinite;
+}
+
+@keyframes gradient-border {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/* Minimal Elements */
+.minimal-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.minimal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.minimal-button {
+    background: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.minimal-button:hover {
+    background: #fff;
+    color: #000;
+}
+
+.minimal-input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 12px 20px;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.minimal-input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #fff;
+    outline: none;
+}
+
+.minimal-title {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.minimal-title::after {
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #fff;
+}
+
+.minimal-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.minimal-icon:hover {
+    transform: scale(1.2);
+}
+
+/* Attractive Elements */
+.attractive-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.attractive-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: 0.6s;
+}
+
+.attractive-card:hover::before {
+    transform: translateX(100%);
+}
+
+.attractive-button {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    border: none;
+    color: #fff;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.attractive-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff8e8e, #ff6b6b);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.attractive-button:hover::before {
+    opacity: 1;
+}
+
+.attractive-title {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.attractive-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+}
+
+.attractive-icon {
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.attractive-icon:hover {
+    transform: scale(1.2) rotate(10deg);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .minimal-title {
+        font-size: 2rem;
+    }
+    
+    .attractive-title {
+        font-size: 2.5rem;
+    }
+    
+    .minimal-card,
+    .attractive-card {
+        padding: 15px;
+    }
+}
+
+/* Modern 2025 Cards */
+.modern-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.modern-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: 0.6s;
+}
+
+.modern-card:hover {
+    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modern-card:hover::before {
+    transform: translateX(100%);
+}
+
+.modern-card-icon {
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    transition: all 0.5s ease;
+}
+
+.modern-card:hover .modern-card-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.modern-card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.modern-card-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+}
+
+.modern-card:hover .modern-card-title::after {
+    width: 100px;
+}
+
+.modern-card-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #495057;
+    margin-bottom: 1.5rem;
+}
+
+.modern-card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.modern-card-features li {
+    font-size: 1rem;
+    color: #495057;
+    margin-bottom: 0.8rem;
+    padding-right: 1.5rem;
+    position: relative;
+}
+
+.modern-card-features li::before {
+    content: '✓';
+    position: absolute;
+    right: 0;
+    color: #0d6efd;
+    font-weight: bold;
+}
+
+.modern-card-button {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 0.75rem 1.5rem;
+}
+
+/* استایل‌های ریسپانسیو برای کارت‌های مدرن */
+@media (max-width: 768px) {
+    .modern-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .modern-card p {
+        font-size: 1rem;
+    }
+    
+    .modern-card-features li {
+        font-size: 0.9rem;
+    }
+    
+    .modern-card-button {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+/* استایل‌های جدید برای صفحه تماس */
+.contact-section {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: 0.6s;
+}
+
+.contact-section:hover::before {
+    transform: translateX(100%);
+}
+
+.contact-info-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.contact-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info-card i {
+    font-size: 1.8rem;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+}
+
+.contact-info-card h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.contact-info-card p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.contact-info-card p a {
+    color: #0d6efd;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-info-card p a:hover {
+    color: #0a58ca;
+    text-decoration: underline;
+}
+
+.form-label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.form-control, .form-select {
+    font-size: 1rem;
+    color: #333;
+    padding: 0.75rem 1rem;
+}
+
+.form-control::placeholder {
+    color: #999;
+}
+
+.invalid-feedback {
+    font-size: 0.875rem;
+    color: #dc3545;
+}
+
+.captcha-box {
+    font-family: monospace;
+    font-size: 1.2rem;
+    letter-spacing: 0.5rem;
+    color: #333;
+    background: #f8f9fa;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.btn-primary {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.alert {
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+}
+
+/* استایل‌های ریسپانسیو برای متن‌ها */
+@media (max-width: 768px) {
+    .contact-section h2 {
+        font-size: 2rem;
+    }
+    
+    .contact-info-card h4 {
+        font-size: 1.1rem;
+    }
+    
+    .contact-info-card p {
+        font-size: 0.9rem;
+    }
+    
+    .form-label {
+        font-size: 0.9rem;
+    }
+    
+    .form-control, .form-select {
+        font-size: 0.9rem;
+    }
+}
+
+/* گالری تصاویر */
+.portfolio-gallery {
+    padding: 60px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 20px;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.gallery-overlay p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.gallery-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border: none;
+    background: transparent;
+    color: #333;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: linear-gradient(45deg, #2196F3, #1976D2);
+    color: white;
+}
+
+/* لایت باکس */
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    padding: 20px;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    margin: auto;
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .gallery-item img {
+        height: 200px;
+    }
+    
+    .gallery-overlay {
+        padding: 15px;
+    }
+    
+    .gallery-overlay h4 {
+        font-size: 1rem;
+    }
+}
+
+/* گالری کارتی مدرن */
+.modern-gallery {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.gallery-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    height: 400px;
+}
+
+.gallery-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: 0.6s;
+    z-index: 1;
+}
+
+.gallery-card:hover {
+    transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-card:hover::before {
+    transform: translateX(100%);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 30px;
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+}
+
+.gallery-card:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.gallery-overlay p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+.gallery-overlay .btn {
+    background: linear-gradient(45deg, #2196F3, #1976D2);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.gallery-overlay .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* انیمیشن‌ها */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+.gallery-card {
+    animation: float 6s ease-in-out infinite;
+}
+
+.gallery-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.gallery-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.gallery-card:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .gallery-card {
+        height: 300px;
+    }
+    
+    .gallery-overlay {
+        padding: 20px;
+    }
+    
+    .gallery-overlay h4 {
+        font-size: 1.2rem;
+    }
+}
+
+/* استایل‌های فرم سفارش */
+.order-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.order-form-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.order-form-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.order-form-card h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.order-form-card h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+}
+
+.order-form-card h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-right: 15px;
+}
+
+.order-form-card h4::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 20px;
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    border-radius: 3px;
+}
+
+.form-control {
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #00f2fe;
+    box-shadow: 0 0 0 0.2rem rgba(0, 242, 254, 0.25);
+}
+
+.form-check-input:checked {
+    background-color: #00f2fe;
+    border-color: #00f2fe;
+}
+
+.form-check-input:focus {
+    border-color: #00f2fe;
+    box-shadow: 0 0 0 0.25rem rgba(0, 242, 254, 0.25);
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #00f2fe, #4facfe);
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4);
+}
+
+/* ریسپانسیو فرم سفارش */
+@media (max-width: 768px) {
+    .order-form-card {
+        padding: 20px;
+    }
+    
+    .order-form-card h2 {
+        font-size: 2rem;
+    }
+    
+    .order-form-card h4 {
+        font-size: 1.1rem;
+    }
+    
+    .form-control {
+        padding: 10px;
+    }
+    
+    .btn-primary {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
 } 
