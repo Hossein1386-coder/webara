@@ -463,28 +463,83 @@
         </div>
     </section>
 
-    <!-- Chat Button -->
-    <div class="chat-button">
-        <a href="chatbot.html" class="btn btn-primary">
-            <i class="fas fa-comments"></i> چت بات
-        </a>
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-header">
+            <h6 class="mb-0">چت و مشاوره</h6>
+            <button class="btn-close" onclick="toggleChat()"></button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">
+                <div class="message-content">
+                    سلام! من دستیار وب آرا هستم. چطور می‌توانم به شما کمک کنم؟
+                </div>
+            </div>
+        </div>
+        <div class="quick-replies">
+            <button class="quick-reply" onclick="sendMessage('خدمات شما چیست؟')">خدمات شما چیست؟</button>
+            <button class="quick-reply" onclick="sendMessage('قیمت‌ها چگونه است؟')">قیمت‌ها چگونه است؟</button>
+            <button class="quick-reply" onclick="sendMessage('چطور می‌توانم سفارش دهم؟')">چطور می‌توانم سفارش دهم؟</button>
+            <button class="quick-reply" onclick="sendMessage('مشاوره رایگان')">مشاوره رایگان</button>
+        </div>
+        <div class="chat-input">
+            <input type="text" class="form-control" id="userInput" placeholder="پیام خود را بنویسید...">
+            <button class="btn btn-primary" onclick="sendUserMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
     </div>
-    <style>
-        .chat-button {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            z-index: 1000;
+    <button class="chat-toggle" onclick="toggleChat()">
+        <i class="fas fa-comments"></i>
+    </button>
+
+    <script>
+        const botResponses = {
+            'سلام': 'سلام! چطور می‌توانم به شما کمک کنم؟',
+            'خدمات شما چیست؟': 'ما خدمات زیر را ارائه می‌دهیم:\n- طراحی سایت شخصی\n- طراحی سایت شرکتی\n- طراحی سایت فروشگاهی\n- طراحی PWA\n- بهینه‌سازی SEO',
+            'قیمت‌ها چگونه است؟': 'قیمت‌ها بسته به نوع سایت و امکانات مورد نیاز متفاوت است:\n- سایت شخصی: از 2.5 میلیون تومان\n- سایت شرکتی: از 3.5 میلیون تومان\n- سایت فروشگاهی: از 5 میلیون تومان',
+            'چطور می‌توانم سفارش دهم؟': 'برای سفارش می‌توانید:\n1. از طریق فرم سفارش در سایت اقدام کنید\n2. با شماره 09214423079 تماس بگیرید\n3. در واتساپ یا تلگرام پیام دهید',
+            'مشاوره رایگان': 'برای دریافت مشاوره رایگان می‌توانید:\n1. با شماره 09214423079 تماس بگیرید\n2. در واتساپ یا تلگرام پیام دهید\n3. از طریق ایمیل hosseinmirzahasani3@gmail.com با ما در ارتباط باشید',
+            'default': 'متأسفانه متوجه سوال شما نشدم. لطفاً سوال خود را به صورت واضح‌تر مطرح کنید یا از دکمه‌های پیش‌فرض استفاده کنید.'
+        };
+
+        function toggleChat() {
+            const chatWidget = document.querySelector('.chat-widget');
+            chatWidget.classList.toggle('active');
         }
-        .chat-button .btn {
-            border-radius: 50px;
-            padding: 10px 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+        function sendMessage(message) {
+            const chatMessages = document.getElementById('chatMessages');
+            const userMessage = document.createElement('div');
+            userMessage.className = 'message user';
+            userMessage.innerHTML = `<div class="message-content">${message}</div>`;
+            chatMessages.appendChild(userMessage);
+
+            setTimeout(() => {
+                const botResponse = botResponses[message] || botResponses['default'];
+                const botMessage = document.createElement('div');
+                botMessage.className = 'message bot';
+                botMessage.innerHTML = `<div class="message-content">${botResponse}</div>`;
+                chatMessages.appendChild(botMessage);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 500);
         }
-        .chat-button .btn i {
-            margin-left: 8px;
+
+        function sendUserMessage() {
+            const userInput = document.getElementById('userInput');
+            const message = userInput.value.trim();
+            if (message) {
+                sendMessage(message);
+                userInput.value = '';
+            }
         }
-    </style>
+
+        document.getElementById('userInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendUserMessage();
+            }
+        });
+    </script>
 
     <!-- Footer -->
     <footer class="bg-dark text-white py-4">
