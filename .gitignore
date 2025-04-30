@@ -1,0 +1,31 @@
+# کلیدهای API و اطلاعات حساس
+*.env
+.env
+.env.*
+config.local.php
+secrets.json
+api_keys.json
+
+# فایل‌های پیکربندی محلی
+*.local.php
+*.local.json
+
+# فایل‌های لاگ
+*.log
+logs/
+
+# فایل‌های موقت
+*.tmp
+*.temp
+temp/
+tmp/
+
+# فایل‌های IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# فایل‌های سیستم عامل
+.DS_Store
+Thumbs.db 
