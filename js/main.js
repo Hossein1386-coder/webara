@@ -319,4 +319,23 @@ if (isIOS) {
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     `;
     document.body.appendChild(iosInstallBanner);
-} 
+}
+
+// مدیریت فیلم نمونه کارها
+document.addEventListener('DOMContentLoaded', function() {
+    const demoVideo = document.querySelector('.demo-video');
+    if (demoVideo) {
+        // اضافه کردن انیمیشن به فیلم
+        demoVideo.addEventListener('loadstart', function() {
+            console.log('شروع بارگذاری فیلم...');
+        });
+        
+        demoVideo.addEventListener('canplay', function() {
+            console.log('فیلم آماده پخش است');
+        });
+        
+        demoVideo.addEventListener('error', function() {
+            console.log('خطا در بارگذاری فیلم');
+        });
+    }
+}); 
