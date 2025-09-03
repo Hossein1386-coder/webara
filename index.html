@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>حسین میرزاحسنی | توسعه‌دهنده ASP.Net</title>
+    <title>حسین میرزاحسنی | رزومه آنلاین - توسعه‌دهنده ASP.Net</title>
+    <meta name="description" content="رزومه آنلاین حسین میرزاحسنی - توسعه‌دهنده ASP.Net با تجربه در طراحی و توسعه وب‌سایت‌های حرفه‌ای">
+    <meta name="keywords" content="رزومه, حسین میرزاحسنی, توسعه‌دهنده ASP.Net, برنامه‌نویس C#, طراحی وب‌سایت">
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/192.png">
     <!-- PWA Meta Tags -->
@@ -120,15 +122,24 @@
                         </p>
                         
                         <div class="experience mb-4" data-aos="fade-up" data-aos-delay="200">
-                            <h4><i class="fas fa-briefcase"></i> پروژه‌ها</h4>
+                            <h4><i class="fas fa-briefcase"></i> تجربه کاری</h4>
                             <ul class="list-unstyled">
-                                <li class="mb-2">
-                                    <strong>طراحی و توسعه وب‌سایت ماکسیما هوم</strong>
-                                    <p class="text-muted mb-0">شرکت وب آرا | 1400-تاکنون</p>
+                                <li class="mb-3">
+                                    <strong>توسعه‌دهنده وب - ASP.Net</strong>
+                                    <p class="text-muted mb-1">شرکت وب آرا | 1400-تاکنون</p>
                                     <ul class="mt-2">
-                                        <li>توسعه وب‌سایت با ASP.Net و C#</li>
-                                        <li>پیاده‌سازی پایگاه داده SQL Server</li>
-                                        <li>طراحی رابط کاربری ریسپانسیو</li>
+                                        <li>توسعه وب‌سایت‌های حرفه‌ای با ASP.Net و C#</li>
+                                        <li>طراحی و پیاده‌سازی پایگاه داده SQL Server</li>
+                                        <li>توسعه رابط کاربری ریسپانسیو با Bootstrap</li>
+                                        <li>پیاده‌سازی سیستم‌های مدیریت محتوا</li>
+                                    </ul>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>پروژه‌های انجام شده</strong>
+                                    <ul class="mt-2">
+                                        <li>وب‌سایت آکادمی تنیس روی میز پردیس</li>
+                                        <li>وب‌سایت ماکسیما هوم (مکانیکی)</li>
+                                        <li>وب‌سایت شخصی و شرکتی</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -340,84 +351,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5">تماس با من</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <form id="contactForm" class="needs-validation" novalidate>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">نام و نام خانوادگی</label>
-                            <input type="text" class="form-control" id="name" name="name" required>
-                            <div class="invalid-feedback">لطفاً نام خود را وارد کنید</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">ایمیل</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
-                            <div class="invalid-feedback">لطفاً ایمیل معتبر وارد کنید</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="phone" class="form-label">شماره تماس</label>
-                            <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{11}" required>
-                            <div class="invalid-feedback">لطفاً شماره تماس معتبر وارد کنید (11 رقم)</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="subject" class="form-label">موضوع</label>
-                            <select class="form-select" id="subject" name="subject" required>
-                                <option value="">انتخاب کنید</option>
-                                <option value="سفارش طراحی سایت">سفارش طراحی سایت</option>
-                                <option value="مشاوره رایگان">مشاوره رایگان</option>
-                                <option value="پشتیبانی">پشتیبانی</option>
-                                <option value="سایر">سایر</option>
-                            </select>
-                            <div class="invalid-feedback">لطفاً موضوع را انتخاب کنید</div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">پیام</label>
-                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-                            <div class="invalid-feedback">لطفاً پیام خود را وارد کنید</div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="captcha-container">
-                                <div class="captcha-box">
-                                    <span id="captchaText"></span>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="refreshCaptcha()">
-                                        <i class="fas fa-sync-alt"></i>
-                                    </button>
-                                </div>
-                                <input type="text" class="form-control" id="captcha" name="captcha" placeholder="کد امنیتی را وارد کنید" required>
-                                <div class="invalid-feedback">لطفاً کد امنیتی را صحیح وارد کنید</div>
-                            </div>
-                        </div>
-                        <div id="formMessage" class="mb-3"></div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane me-2"></i>ارسال پیام
-                        </button>
-                    </form>
-                </div>
-                <div class="col-md-6">
-                    <div class="contact-info">
-                        <h3>اطلاعات تماس</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> یزد، ایران</p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:09214423079">09214423079</a></p>
-                        <p><i class="fas fa-envelope"></i> <a href="mailto:hosseinmirzahasani3@gmail.com">hosseinmirzahasani3@gmail.com</a></p>
-                        <div class="social-links">
-                            <a href="https://wa.me/989214423079" target="_blank" class="whatsapp-link">
-                                <i class="fab fa-whatsapp"></i>
-                            </a>
-                            <a href="https://t.me/09214423079" target="_blank" class="telegram-link">
-                                <i class="fab fa-telegram"></i>
-                            </a>
-                            <a href="sms:09214423079" class="sms-link">
-                                <i class="fas fa-comment"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Chat Widget -->
     <div class="chat-widget">
@@ -428,7 +361,7 @@
         <div class="chat-messages" id="chatMessages">
             <div class="message bot">
                 <div class="message-content">
-                    سلام! من دستیار وب آرا هستم. چطور می‌توانم به شما کمک کنم؟
+                    سلام! من دستیار حسین میرزاحسنی هستم. چطور می‌توانم به شما کمک کنم؟
                 </div>
             </div>
         </div>
@@ -498,45 +431,41 @@
     </script>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
+    <footer class="bg-dark text-white py-5">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5>دسترسی سریع</h5>
+                <div class="col-md-6 mb-4">
+                    <h5 class="mb-3"><i class="fas fa-user"></i> اطلاعات شخصی</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#home">خانه</a></li>
-                        <li><a href="#about">درباره من</a></li>
-                        <li><a href="#portfolio">پروژه‌ها</a></li>
-                        <li><a href="#skills">مهارت‌ها</a></li>
-                        <li><a href="#services">خدمات</a></li>
-                        <li><a href="contact.html">تماس</a></li>
+                        <li class="mb-2"><i class="fas fa-user-tie"></i> حسین میرزاحسنی</li>
+                        <li class="mb-2"><i class="fas fa-briefcase"></i> توسعه‌دهنده ASP.Net</li>
+                        <li class="mb-2"><i class="fas fa-map-marker-alt"></i> یزد، ایران</li>
+                        <li class="mb-2"><i class="fas fa-calendar"></i> متولد 1386</li>
                     </ul>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h5>اطلاعات تماس</h5>
+                <div class="col-md-6 mb-4">
+                    <h5 class="mb-3"><i class="fas fa-address-book"></i> راه‌های ارتباط</h5>
                     <ul class="list-unstyled">
-                        <li><i class="fas fa-map-marker-alt"></i> یزد، ایران</li>
-                        <li><i class="fas fa-phone"></i> <a href="tel:09214423079">09214423079</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:hosseinmirzahasani3@gmail.com">hosseinmirzahasani3@gmail.com</a></li>
+                        <li class="mb-2"><i class="fas fa-phone"></i> <a href="tel:09214423079" class="text-white">09214423079</a></li>
+                        <li class="mb-2"><i class="fas fa-envelope"></i> <a href="mailto:hosseinmirzahasani3@gmail.com" class="text-white">hosseinmirzahasani3@gmail.com</a></li>
                     </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5>شبکه‌های اجتماعی</h5>
-                    <div class="social-links">
-                        <a href="https://wa.me/989214423079" target="_blank" class="whatsapp-link">
+                    <div class="social-links mt-3">
+                        <a href="https://wa.me/989214423079" target="_blank" class="whatsapp-link me-2">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        <a href="https://t.me/09214423079" target="_blank" class="telegram-link">
+                        <a href="https://t.me/09214423079" target="_blank" class="telegram-link me-2">
                             <i class="fab fa-telegram"></i>
                         </a>
-                        <a href="sms:09214423079" class="sms-link">
-                            <i class="fas fa-comment"></i>
+                        <a href="https://github.com/hossein1386-coder" target="_blank" class="github-link">
+                            <i class="fab fa-github"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4">
-                <p>&copy; 2025 Hossein-coding</p>
+            <hr class="my-4">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 حسین میرزاحسنی</p>
+                <p class="small text-muted mt-2">توسعه‌دهنده ASP.Net | طراحی و توسعه وب‌سایت</p>
             </div>
         </div>
     </footer>
